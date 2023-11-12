@@ -6,7 +6,6 @@ use Source\Http\Controllers\Api\ApiController;
 
 use Source\Models\UserComment;
 
-use HTMLPurifier;
 use Respect\Validation\Validator;
 use Source\Support\Csrf;
 
@@ -45,7 +44,7 @@ class CommentController extends ApiController
         }
 
         $UserComment = new UserComment();
-        $UserComment->message = (new HTMLPurifier())->purify($data['message']);
+        $UserComment->message = $data['message'];
         $UserComment->account_id = getAccountId();
         $UserComment->content_id = 1;
 
@@ -150,7 +149,7 @@ class CommentController extends ApiController
 
         $UserComment = new UserComment();
         $UserComment->id = $data['comment'];
-        $UserComment->message = (new HTMLPurifier())->purify($data['message']);
+        $UserComment->message = $data['message'];
         $UserComment->account_id = getAccountId();
 
         if (!$UserComment->updateComment()) {

@@ -5,6 +5,7 @@ namespace Source\Models;
 use CoffeeCode\DataLayer\Connect;
 use CoffeeCode\DataLayer\DataLayer;
 
+use HTMLPurifier;
 use Respect\Validation\Validator;
 
 /**
@@ -29,6 +30,7 @@ class UserComment extends DataLayer
             return false;
         }
 
+        $this->message = (new HTMLPurifier())->purify($this->message);
         $this->save();
 
         return true;
@@ -78,7 +80,7 @@ class UserComment extends DataLayer
             return false;
         }
 
-        $comment->message = $this->message;
+        $comment->message = (new HTMLPurifier())->purify($this->message);
         $comment->save();
 
         return true;
