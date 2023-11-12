@@ -101,8 +101,5 @@ function submitButton(action, div, button) {
 */
 
 $(document).on('input', '.textarea textarea', function () {
-
     $(this).parent().find('.icon.down').text(attributes.comment.max - $(this).val().length)
-
-    // $(this).parent().find('.icon.down').text($(this).parent().find('.icon.down').data('max') - $(this).val().length)
 })
