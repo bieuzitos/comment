@@ -2,8 +2,6 @@
 
 namespace Source\Http\Controllers\Api;
 
-use Phpfastcache\CacheManager;
-use Phpfastcache\Config\ConfigurationOption;
 use Respect\Validation\Validator;
 
 /**
