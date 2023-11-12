@@ -1,0 +1,130 @@
+
+/*
+ *
+ * COMMENT
+ * 
+ */
+.comment {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--border-radius);
+  background-color: var(--background-color-primary);
+  padding: 1rem;
+}
+
+/* COMMENT - FOOTER */
+.comment .comment-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* COMMENT - FOOTER | AVATAR */
+.comment .comment-footer .comment-avatar {
+  user-select: none;
+  min-width: 38px; min-height: 38px;
+  border-radius: var(--border-radius-primary);
+  margin-right: .75rem;
+}
+.comment .comment-footer .comment-avatar img {
+  display: block;
+  width: 38px; height: 38px;
+  border-radius: var(--border-radius-primary);
+}
+
+/* COMMENT - FOOTER | ACTION */
+.comment .comment-footer .comment-action {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* COMMENT - FOOTER | ACTION - BUTTON */
+.comment .comment-footer .comment-action .comment-button {
+  user-select: none;
+  margin-left: .75rem;
+}
+.comment .comment-footer .comment-action .comment-button button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px; height: 32px;
+  border-radius: var(--border-radius-secondary);
+  background-color: var(--base-primary);
+  padding: 0 .75rem;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color-secondary);
+  transition: background-color .15s ease-in-out, color .15s ease-in-out;
+  cursor: pointer;
+}
+.comment .comment-footer .comment-action .comment-button button:hover {
+  background-color: var(--base-secondary);
+  color: var(--text-color-primary);
+}
+
+/* COMMENT - FOOTER | ACTION - BUTTON | HIDDEN */
+.comment .comment-footer .comment-action .comment-button.hidden {
+  display: none;
+}
+
+/* COMMENT - FOOTER | ACTION - BUTTON | DISABLED, INACTIVE */
+.comment .comment-footer .comment-action .comment-button.disabled, 
+.comment .comment-footer .comment-action .comment-button.inactive {
+  cursor: not-allowed;
+}
+.comment .comment-footer .comment-action .comment-button.disabled button, 
+.comment .comment-footer .comment-action .comment-button.inactive button {
+  pointer-events: none;
+  opacity: .6;
+}
+.comment .comment-footer .comment-action .comment-button.disabled button.disabled {
+  background-color: var(--background-color-secondary);
+}
+.comment .comment-footer .comment-action .comment-button.inactive button.inactive {
+  background-color: var(--base-primary);
+}
+
+/* COMMENT - FOOTER | ACTION - BUTTON | CANCEL */
+.comment .comment-footer .comment-action .comment-button.cancel button {
+  background-color: var(--background-color-primary);
+  color: var(--text-color-secondary);
+}
+.comment .comment-footer .comment-action .comment-button.cancel button:hover {
+  background-color: var(--background-color-secondary);
+  color: var(--text-color-primary);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Empty
+|--------------------------------------------------------------------------
+*/
+
+img[src=""] {
+  content: url("data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==");
+  width: 100%; height: 100%;
+  background-color: var(--background-color-primary);
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0));
+  filter: none !important;
+  opacity: 1;
+  animation: 1.2s ease-in-out 0s infinite normal none running loading;
+}
+
+/*
+|--------------------------------------------------------------------------
+| keyframes
+|--------------------------------------------------------------------------
+*/
+
+@keyframes loading {
+  0% {
+    background-position: -200px 0px;
+  }
+
+  100% {
+    background-position: calc(200px + 100%) 0px;
+  }
+}

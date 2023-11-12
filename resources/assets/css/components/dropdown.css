@@ -1,0 +1,60 @@
+
+/* 
+ *
+ * DROPDOWN
+ *
+ */
+.dropdown {
+  user-select: none;
+  position: absolute;
+  display: none;
+  z-index: 5;
+  right: 0; left: auto;
+  margin-top: .5rem;
+}
+
+/* DROPDOWN - CONTENT */
+.dropdown .dropdown-content {
+  width: 150px;
+  border-radius: var(--border-radius-primary);
+  background-color: var(--background-color-primary);
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, .75);
+}
+.dropdown .dropdown-content.list {
+  width: 225px;
+}
+
+/* DROPDOWN - CONTENT | MIDDLE */
+.dropdown .dropdown-content .dropdown-middle {
+  padding: .5rem;
+}
+
+/* DROPDOWN - CONTENT | MIDDLE - BUTTON */
+.dropdown .dropdown-content .dropdown-middle button {
+  display: flex;
+  align-items: center;
+  width: 100%; height: 30px;
+  border-radius: var(--border-radius-secondary);
+  background-color: transparent;
+  padding: 0 .35rem;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color-secondary);
+  transition: background-color .15s ease-in-out, color .15s ease-in-out;
+  cursor: pointer;
+}
+.dropdown .dropdown-content .dropdown-middle button:not(:last-child) {
+  margin-bottom: .15rem;
+}
+.dropdown .dropdown-content .dropdown-middle button:hover {
+  background-color: var(--background-color-secondary);
+  color: var(--text-color-primary);
+}
+.dropdown .dropdown-content .dropdown-middle button .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px; height: 20px;
+  margin-right: .5rem;
+  font-size: 14px;
+}

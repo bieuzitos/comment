@@ -1,0 +1,147 @@
+
+/*
+ *
+ * TEXTAREA
+ * 
+ */
+.textarea {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+/* TEXTAREA */
+.textarea textarea {
+  outline: none;
+  resize: vertical;
+  display: block;
+  width: 100%;
+  max-height: 250px; min-height: 150px;
+  border: 2px solid var(--border-color-secondary);
+  border-radius: var(--border-radius-primary);
+  background-color: transparent;
+  padding: .85rem 1rem .85rem 2.5rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--text-color-primary);
+  transition: border-color .15s ease-in-out, color .15s ease-in-out;
+}
+
+/* TEXTAREA - ICON */
+.textarea .icon {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px; height: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--border-color-secondary);
+  transition: color .15s ease-in-out;
+}
+.textarea .icon.top {
+  top: 14px; left: 10px;
+}
+.textarea .icon.down {
+  user-select: none;
+  bottom: 8px; left: 10px;
+  font-size: 12px;
+}
+
+/* TEXTAREA - LABEL */
+.textarea textarea ~ label {
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  top: 25px; left: 0;
+  border-radius: var(--border-radius-tertiary);
+  background-color: transparent;
+  margin: 0 2.25rem;
+  padding: 0 .4rem;
+  font-size: 16px;
+  color: var(--text-color-secondary);
+  transform: translateY(-50%);
+  transform-origin: left top;
+  transition: .15s ease-in-out;
+}
+
+/* TEXTAREA - DISABLED */
+.textarea textarea:disabled {
+  border-color: var(--border-color-secondary) !important;
+  color: var(--text-secondary) !important;
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* TEXTAREA - DISABLED | LABEL, ICON */
+.textarea textarea:disabled ~ label,
+.textarea textarea:disabled ~ .icon {
+  color: var(--border-color-secondary) !important;
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* TEXTAREA - FOCUS */
+.textarea textarea:focus {
+  border-color: var(--base-primary);
+}
+
+/* TEXTAREA - FOCUS | LABEL */
+.textarea textarea:focus ~ label,
+.textarea textarea:not(:focus):not(:placeholder-shown) ~ label {
+  top: 0;
+  background-color: var(--background-color-primary);
+  margin: 0 1rem;
+  opacity: 1;
+  transform: translateY(-50%) scale(.9);
+}
+
+/* TEXTAREA - FOCUS | ICON */
+.textarea textarea:focus ~ .icon.top {
+  color: var(--base-primary);
+}
+
+/* TEXTAREA - PLACEHOLDER */
+.textarea textarea::placeholder {
+  user-select: none;
+  opacity: 0;
+}
+.textarea textarea:not(:focus):not(:placeholder-shown) {
+  border-color: var(--border-color-primary);
+}
+
+/* TEXTAREA - PLACEHOLDER | ICON */
+.textarea textarea:not(:focus):not(:placeholder-shown) ~ .icon.top {
+  color: var(--border-color-primary);
+}
+
+/* TEXTAREA - ERROR */
+.textarea textarea.error {
+  border-color: var(--danger-primary);
+}
+
+/* TEXTAREA - ERROR | SPAN */
+.textarea textarea.error ~ span.error {
+  user-select: none;
+  font-size: 12px !important;
+  color: var(--danger-primary) !important;
+}
+
+/* TEXTAREA - ERROR | ICON */
+.textarea textarea.error ~ .icon.top {
+  color: var(--danger-primary);
+}
+.textarea textarea.error ~ .icon.down {
+  bottom: 29px;
+}
+
+/* TEXTAREA - ERROR, PLACEHOLDER */
+.textarea textarea.error:not(:focus):not(:placeholder-shown) {
+  border-color: var(--danger-primary);
+}
+
+/* TEXTAREA - ERROR, PLACEHOLDER | ICON */
+.textarea textarea.error:not(:focus):not(:placeholder-shown) ~ .icon.top {
+  color: var(--danger-primary);
+}

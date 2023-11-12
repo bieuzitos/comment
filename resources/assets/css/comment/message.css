@@ -1,0 +1,237 @@
+
+i {
+  margin-top: 1px;
+}
+
+/*
+ *
+ * MESSAGE
+ * 
+ */
+.message {
+  margin-top: 2rem;
+}
+
+/* MESSAGE - HEADER */
+.message .message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--background-color-primary);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+/* MESSAGE - HEADER | TITLE */
+.message .message-header .message-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color-primary);
+}
+.message .message-header .message-title .count {
+  color: var(--text-color-secondary);
+}
+
+/* MESSAGE - HEADER | ACTION */
+.message .message-header .message-action {
+  user-select: none;
+  position: relative;
+  margin-left: .75rem;
+}
+
+/* MESSAGE - HEADER | ACTION - BUTTON */
+.message .message-header .message-action > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color-primary);
+  cursor: pointer;
+}
+.message .message-header .message-action > button i {
+  margin-right: .5rem;
+  font-size: 16px;
+  color: var(--text-color-secondary);
+}
+
+
+/* MESSAGE - CONTENT */
+.message .message-content {
+
+}
+
+/* MESSAGE - CONTENT | BOX */
+.message .message-content .message-box {
+  display: flex;
+}
+.message .message-content .message-box:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+/* MESSAGE - CONTENT | BOX - USER */
+.message .message-content .message-box .box-user {
+  margin-right: 1rem;
+}
+
+/* MESSAGE - CONTENT | BOX - USER | AVATAR */
+.message .message-content .message-box .box-user .box-avatar {
+  user-select: none;
+  min-width: 50px; min-height: 50px;
+  border-radius: var(--border-radius-primary);
+}
+.message .message-content .message-box .box-user .box-avatar img {
+  display: block;
+  width: 50px; height: 50px;
+  border-radius: var(--border-radius-primary);
+}
+
+/* MESSAGE - CONTENT | BOX - CONTENT */
+.message .message-content .message-box .box-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%; height: auto;
+}
+
+/* MESSAGE - CONTENT | BOX - CONTENT | HEADER */
+.message .message-content .message-box .box-content .box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  border-bottom: 1px solid var(--background-color-secondary);
+  border-top-left-radius: var(--border-radius-primary);
+  border-top-right-radius: var(--border-radius-primary);
+  background-color: var(--background-color-primary);
+  padding: 0 1rem;
+}
+
+/* MESSAGE - CONTENT | BOX - CONTENT | HEADER - INFO */
+.message .message-content .message-box .box-content .box-header .box-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1px;
+}
+
+.message .message-content .message-box .box-content .box-header .box-info .box-name {
+  margin-right: .75rem;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-color-primary);
+}
+.message .message-content .message-box .box-content .box-header .box-info .box-date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-color-secondary);
+}
+.message .message-content .message-box .box-content .box-header .box-info .box-date span {
+  margin: 2.15px 0 0 .4rem;
+}
+
+/* MESSAGE - CONTENT | BOX - CONTENT | HEADER - BUTTON */
+.message .message-content .message-box .box-content .box-header .box-button {
+  user-select: none;
+  position: relative;
+}
+.message .message-content .message-box .box-content .box-header .box-button > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px; height: 32px;
+  border-radius: var(--border-radius-secondary);
+  background-color: transparent;
+  font-size: 16px;
+  color: var(--text-color-secondary);
+  opacity: 0;
+  transition: opacity .15s ease-in-out, background-color .15s ease-in-out, color .15s ease-in-out;
+  cursor: pointer;
+}
+.message .message-content .message-box .box-content .box-header .box-button > button:hover,
+.message .message-content .message-box .box-content .box-header .box-button > button.active {
+  background-color: var(--background-color-secondary);
+  color: var(--text-color-primary);
+  opacity: 1;
+}
+.message .message-content .message-box .box-content:hover .box-header .box-button > button {
+  opacity: 1;
+}
+
+/* MESSAGE - CONTENT | BOX - CONTENT | BODY */
+.message .message-content .message-box .box-content .box-body {
+  border-bottom-left-radius: var(--border-radius-primary);
+  border-bottom-right-radius: var(--border-radius-primary);
+  background-color: var(--background-color-primary);
+}
+.message .message-content .message-box .box-content .box-body:not(:has(div)) {
+  padding: 1rem;
+}
+
+/* MESSAGE - CONTENT | BOX - CONTENT | BODY - SPAN */
+.message .message-content .message-box .box-content .box-body span {
+  font-size: 16px;
+  color: var(--text-color-secondary);
+}
+
+/* MESSAGE - CONTENT | BOX - CONTENT | FOOTER */
+.message .message-content .message-box .box-content .box-footer {
+  display: flex;
+  align-items: center;
+  margin-top: .5rem;
+}
+
+/* MESSAGE - CONTENT | BOX - CONTENT | BODY - BUTTON */
+.message .message-content .message-box .box-content .box-footer .box-button {
+  user-select: none;
+  margin-right: .5rem;
+}
+.message .message-content .message-box .box-content .box-footer .box-button button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 34px; height: 34px;
+  border-radius: var(--border-radius-secondary);
+  background-color: transparent;
+  padding: 0 .5rem;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-color-secondary);
+  transition: background-color .15s ease-in-out, color .15s ease-in-out;
+  cursor: pointer;
+}
+.message .message-content .message-box .box-content .box-footer .box-button button:hover {
+  background-color: var(--background-color-primary);
+  color: var(--text-color-primary);
+}
+.message .message-content .message-box .box-content .box-footer .box-button button span {
+  margin-left: .5rem;
+}
+
+/* MESSAGE - CONTENT | EMPTY */
+.message .message-content .message-empty.hidden {
+  display: none;
+}
+.message .message-content .message-empty {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  padding: 2rem 0;
+}
+.message .message-content .message-empty .icon {
+  font-size: 58px;
+  color: var(--text-color-primary);
+}
+.message .message-content .message-empty .text {
+  margin-top: 1.5rem;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--text-color-secondary);
+}

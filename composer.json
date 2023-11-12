@@ -1,0 +1,49 @@
+{
+    "name": "bieuzitos/comment",
+    "description": "Plataforma interativa que permite aos usuários efetuar comentários, avaliações e com recursos avançados de respostas.",
+    "version": "1.0",
+    "type": "project",
+    "license": "proprietary",
+    "minimum-stability": "beta",
+    "authors": [
+        {
+            "name": "Bieuzitos",
+            "email": "suporte@bieuzitos.com",
+            "homepage": "https://www.bieuzitos.com",
+            "role": "Developer"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "Source\\": "source/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "phinx-migrate-cmd": [
+            "vendor\\bin\\phinx migrate -e development",
+            "vendor\\bin\\phinx seed:run -e development"
+        ]
+    },
+    "require": {
+        "ext-json": "*",
+        "coffeecode/datalayer": "2.0.*",
+        "coffeecode/optimizer": "2.1.*",
+        "coffeecode/router": "2.0.*",
+        "ezyang/htmlpurifier": "4.16.0",
+        "league/plates": "3.5.*",
+        "nesbot/carbon": "2.71.*",
+        "ramsey/uuid": "4.7.*",
+        "respect/validation": "2.2.*",
+        "robmorgan/phinx": "0.15.*",
+        "vlucas/phpdotenv": "5.5.*"
+    },
+    "require-dev": {
+        "matthiasmullie/minify": "1.3.*"
+    }
+}
