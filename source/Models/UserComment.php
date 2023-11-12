@@ -42,12 +42,12 @@ class UserComment extends DataLayer
         $comment = $this->findById($this->id);
 
         if (!Validator::notBlank()->validate($comment)) {
-            $this->fail = new \PDOException('error:O comentário mencionado não foi localizado.');
+            $this->fail = new \PDOException('error:' . MESSAGE_COMMENT_NULL);
             return false;
         }
 
         if (!Validator::identical($this->account_id)->validate($comment->account_id)) {
-            $this->fail = new \PDOException('error:O comentário mencionado não foi postado por você.');
+            $this->fail = new \PDOException('error:' . MESSAGE_COMMENT_NOTCREATED);
             return false;
         }
 
