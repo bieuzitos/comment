@@ -151,7 +151,7 @@ class Csrf
      */
     private function hMacWithIp(array|string $token): string
     {
-        return \hash_hmac('sha256', base64_decode($_ENV['APP_KEY']), $token);
+        return \hash_hmac('sha256', base64_decode('R8+K1J6WNxf500kqu7zVvFIjNq+mnHcmaQlE781sSzU='), $token);
     }
 
     /**
