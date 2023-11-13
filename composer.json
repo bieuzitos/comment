@@ -38,7 +38,6 @@
         "ezyang/htmlpurifier": "4.16.0",
         "league/plates": "3.5.*",
         "nesbot/carbon": "2.71.*",
-        "ramsey/uuid": "4.7.*",
         "respect/validation": "2.2.*",
         "robmorgan/phinx": "0.15.*",
         "vlucas/phpdotenv": "5.5.*"
