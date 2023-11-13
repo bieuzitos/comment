@@ -4,6 +4,9 @@ namespace Source\Http\Controllers\Web;
 
 use Source\Http\Controllers\Controller;
 
+use Source\Models\UserAccount;
+use Source\Models\UserComment;
+
 /**
  * Class WebController
  * 
@@ -35,8 +38,8 @@ class WebController extends Controller
         echo $this->view->render('home/index', [
             'seo' => $optimizer,
 
-            'comments' => (new \Source\Models\UserComment())->getAllByContent(1),
-            'comments_count' => (new \Source\Models\UserComment())->getCountByContent(1)
+            'comments' => (new UserComment())->getAllByContent(1),
+            'comments_count' => (new UserComment())->getCountByContent(1)
         ]);
     }
 }
