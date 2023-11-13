@@ -35,11 +35,7 @@ class CommentController extends ApiController
             Validator::key('message', Validator::notBlank()),
             Validator::key('csrf_token', Validator::notBlank(), false)
         )->validate($data)) {
-            echo json_encode([
-                'status_type' => 'error',
-                'status_message' => MESSAGE_REQUEST_ERROR,
-                'status' => false
-            ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            $this->call(400)->back();
             return;
         }
 
@@ -52,36 +48,26 @@ class CommentController extends ApiController
             list($type, $message) = explode(':', $UserComment->fail()->getMessage());
 
             if (Validator::contains('|')->validate($message)) {
-                echo json_encode([
-                    'status_type' => $type,
-                    'status_message' => explode('|', $message)[1],
-                    'status_textarea' => true,
-                    'status' => false
-                ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                $this->call(400, $type, explode('|', $message)[1], ['status_textarea' => true])->back();
                 return;
             }
 
-            echo json_encode([
-                'status_type' => $type,
-                'status_message' => $message,
-                'status' => false
-            ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            $this->call(400, $type, $message)->back();
             return;
         }
 
         (new Csrf())->unsetToken();
 
         $comment = $UserComment->data();
-
         unset($comment->account_id);
         unset($comment->content_id);
 
-        echo json_encode([
+        $this->back([
             'comment' => $comment,
             'status_message' => MESSAGE_COMMENT_CREATE,
             'status' => true,
             'token' => (new Csrf())->insertHiddenToken()
-        ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        ]);
     }
 
     /**
@@ -95,11 +81,7 @@ class CommentController extends ApiController
             Validator::key('comment', Validator::notBlank()->intVal()),
             Validator::key('csrf_token', Validator::notBlank(), false)
         )->validate($data)) {
-            echo json_encode([
-                'status_type' => 'error',
-                'status_message' => MESSAGE_REQUEST_ERROR,
-                'status' => false
-            ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            $this->call(400)->back();
             return;
         }
 
@@ -110,21 +92,17 @@ class CommentController extends ApiController
         if (!$UserComment->deleteComment()) {
             list($type, $message) = explode(':', $UserComment->fail()->getMessage());
 
-            echo json_encode([
-                'status_type' => $type,
-                'status_message' => $message,
-                'status' => false
-            ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            $this->call(400, $type, $message)->back();
             return;
         }
 
         (new Csrf())->unsetToken();
 
-        echo json_encode([
+        $this->back([
             'status_message' => MESSAGE_COMMENT_DELETE,
             'status' => true,
             'token' => (new Csrf())->insertHiddenToken()
-        ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        ]);
     }
 
     /**
@@ -139,11 +117,7 @@ class CommentController extends ApiController
             Validator::key('message', Validator::notBlank()),
             Validator::key('csrf_token', Validator::notBlank(), false)
         )->validate($data)) {
-            echo json_encode([
-                'status_type' => 'error',
-                'status_message' => MESSAGE_REQUEST_ERROR,
-                'status' => false
-            ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            $this->call(400)->back();
             return;
         }
 
@@ -156,35 +130,25 @@ class CommentController extends ApiController
             list($type, $message) = explode(':', $UserComment->fail()->getMessage());
 
             if (Validator::contains('|')->validate($message)) {
-                echo json_encode([
-                    'status_type' => $type,
-                    'status_message' => explode('|', $message)[1],
-                    'status_textarea' => true,
-                    'status' => false
-                ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                $this->call(400, $type, explode('|', $message)[1], ['status_textarea' => true])->back();
                 return;
             }
 
-            echo json_encode([
-                'status_type' => $type,
-                'status_message' => $message,
-                'status' => false
-            ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            $this->call(400, $type, $message)->back();
             return;
         }
 
         (new Csrf())->unsetToken();
 
         $comment = $UserComment->fetch()->data();
-
         unset($comment->account_id);
         unset($comment->content_id);
 
-        echo json_encode([
+        $this->back([
             'comment' => $comment,
             'status_message' => MESSAGE_COMMENT_UPDATE,
             'status' => true,
             'token' => (new Csrf())->insertHiddenToken()
-        ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        ]);
     }
 }

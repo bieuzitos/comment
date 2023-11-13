@@ -35,16 +35,18 @@ class ApiController
      * 
      * @return ApiController
      */
-    protected function call(int $code, string $type = null, string $message = null): ApiController
+    protected function call(int $code, string $type = null, string $message = null, array $additional = []): ApiController
     {
         http_response_code($code);
 
-        if (Validator::notBlank()->validate($type)) {
-            $this->response = [
-                'status_type' => 'Bad Request',
-                'status_message' => 'There was a problem with your request',
-                'status' => false
-            ];
+        $this->response = [
+            'status_type' => (Validator::notBlank()->validate($type) ? $type : 'Bad Request'),
+            'status_message' => (Validator::notBlank()->validate($message) ? $message : 'There was a problem with your request'),
+            'status' => false
+        ];
+
+        if (Validator::notBlank()->validate($additional)) {
+            $this->response = array_merge($additional, $this->response);
         }
 
         return $this;
