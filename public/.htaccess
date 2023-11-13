@@ -3,14 +3,9 @@ Options -MultiViews -Indexes
 RewriteEngine On
 
 ## HTTPS Router Redirect
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteCond %{HTTPS} off
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-## HTTP Header
-<IfModule mod_headers.c>
-    Header unset Platform
-</IfModule>
+# RewriteCond %{HTTP:X-Forwarded-Proto} !https
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 ## Minify Router
 <IfModule mod_rewrite.c>
