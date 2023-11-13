@@ -1,28 +1,11 @@
 <?php
 
 /**
- * @return bool
- */
-function is_localhost(): bool
-{
-    $whitelist = ['127.0.0.1', '::1'];
-    if (in_array($_SERVER['REMOTE_ADDR'], $whitelist)) {
-        return true;
-    }
-
-    return false;
-}
-
-/**
  * @return string
  */
 function url(): string
 {
-    if (is_localhost()) {
-        return URL_TEST;
-    }
-
-    return URL_BASE;
+    return URL_TEST;
 }
 
 /**

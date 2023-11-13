@@ -15,9 +15,7 @@ require_once __DIR__ . '/Helpers/Session.php';
 |--------------------------------------------------------------------------
 */
 
-if (is_localhost()) {
-    require_once __DIR__ . '/Minify/Web.php';
-}
+require_once __DIR__ . '/Minify/Web.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +35,6 @@ define('SITE_LOCALE', 'pt_BR');
 */
 
 define('URL_TEST', 'https://comment.test');
-define('URL_BASE', 'https://www.bieuzitos.com');
 
 /*
 |--------------------------------------------------------------------------
@@ -87,7 +84,7 @@ define('COMMENT_MAX', 500);
 
 define('SITE_TITLE', ' • ' . SITE_NAME);
 define('SITE_DESC', 'Plataforma interativa que permite aos usuários efetuar comentários, avaliações e com recursos avançados de respostas.');
-define('SITE_DOMAIN', str_replace('https://www.', '', URL_BASE));
+define('SITE_DOMAIN', str_replace('https://www.', '', URL_TEST));
 
 /*
 |--------------------------------------------------------------------------
