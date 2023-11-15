@@ -10,7 +10,7 @@
             if ($(this).attr('name') === 'message') {
                 let input = $(this).val()
                 let regex_message = /^[\s\S]+$/
-                if (input.length < 1 || input.length > attributes.comment.max || !regex_message.test(input)) {
+                if (input.length < 1 || input.length > attributes.comment.max || !regex_message.test(input) || input === $(this).data('text')) {
                     empty = true
                 }
             }

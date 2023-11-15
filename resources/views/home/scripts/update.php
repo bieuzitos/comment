@@ -11,8 +11,9 @@
         event.preventDefault()
 
         const comment = $(this).closest('.message-box').data('message')
-
         const message = $('#message-' + comment + ' .box-body')
+
+        formUpdateReset()
 
         const content = `<div id="comment-${comment}" class="comment">
             <form data-function="update">
@@ -46,20 +47,26 @@
     $(document).on('click', button_update_submit_2, function(event) {
         event.preventDefault()
 
+        $.validator.addMethod('notEqual', function(value, element, param) {
+            return value !== $(element).data('text')
+        })
+
         let commentUpdate = $(form_update).validate({
             errorElement: 'span',
             rules: {
                 message: {
                     required: true,
                     minlength: 1,
-                    maxlength: attributes.comment.max
+                    maxlength: attributes.comment.max,
+                    notEqual: true
                 }
             },
             messages: {
                 message: {
                     required: 'O comentário é um campo obrigatório.',
                     minlength: jQuery.validator.format('O comentário deve conter no mínimo {0} caracteres.'),
-                    maxlength: jQuery.validator.format('O comentário deve conter no máximo {0} caracteres.')
+                    maxlength: jQuery.validator.format('O comentário deve conter no máximo {0} caracteres.'),
+                    notEqual: 'O comentário deve ser diferente do original.'
                 }
             }
         })
@@ -148,9 +155,9 @@
         }
     }
 
-    function formUpdateReset(comment) {
-        const message = $('#comment-' + comment + ' textarea').data('text')
-
-        $('#comment-' + comment).parent().empty().html('<span>' + message + '</span>')
+    function formUpdateReset() {
+        $('[id^="comment-"]').each(function() {
+            $(this).parent().empty().html('<span>' + $(this).find('textarea').data('text') + '</span>')
+        })
     }
 </script>
