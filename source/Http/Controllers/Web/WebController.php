@@ -4,7 +4,6 @@ namespace Source\Http\Controllers\Web;
 
 use Source\Http\Controllers\Controller;
 
-use Source\Models\UserAccount;
 use Source\Models\UserComment;
 
 /**
